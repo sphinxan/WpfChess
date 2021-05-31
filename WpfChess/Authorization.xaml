@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfChess.Authorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfChess"
+        mc:Ignorable="d"
+        Title="Авторизация игроков" Height="800" Width="800" Background="{DynamicResource BackgroundColor}">
+    <Grid>
+        <Border>
+            <StackPanel>
+                <TextBlock FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Margin="10">Игрок 1</TextBlock>
+                <TextBox Name="tbFirstPlayer" FontSize="40" Height="70" Width="500" Margin="10" HorizontalContentAlignment="Center">имя 1</TextBox>
+
+                <TextBlock FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Margin="10">Игрок 2</TextBlock>
+                <TextBox Name="tbSecondPlayer" FontSize="40" Height="70" Width="500" Margin="10" HorizontalContentAlignment="Center">имя 2</TextBox>
+
+                <Button Click="BtnStart_Click">СТАРТ</Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
