@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfChess.Logic;
 
 namespace WpfChess
 {
@@ -24,7 +25,11 @@ namespace WpfChess
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
+            FirstPlayer.Name = tbFirstPlayer.Text;
+            SecondPlayer.Name = tbSecondPlayer.Text;
 
+            Game game = new Game();
+            game.Show();
             Close();
         }
     }

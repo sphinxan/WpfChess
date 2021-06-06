@@ -10,10 +10,10 @@
         <Border>
             <StackPanel>
                 <TextBlock FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Margin="10">Игрок 1</TextBlock>
-                <TextBox Name="tbFirstPlayer" FontSize="40" Height="70" Width="500" Margin="10" HorizontalContentAlignment="Center">имя 1</TextBox>
+                <TextBox Name="tbFirstPlayer" FontSize="40" Height="70" Width="500" Margin="10" HorizontalContentAlignment="Center"></TextBox>
 
                 <TextBlock FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Margin="10">Игрок 2</TextBlock>
-                <TextBox Name="tbSecondPlayer" FontSize="40" Height="70" Width="500" Margin="10" HorizontalContentAlignment="Center">имя 2</TextBox>
+                <TextBox Name="tbSecondPlayer" FontSize="40" Height="70" Width="500" Margin="10" HorizontalContentAlignment="Center"></TextBox>
 
                 <Button Click="BtnStart_Click">СТАРТ</Button>
             </StackPanel>
