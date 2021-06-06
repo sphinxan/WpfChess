@@ -20,52 +20,36 @@ namespace WpfChess
     /// </summary>
     public partial class MainWindow : Window
     {
-        /*Board ChessBoard = new Board();
-        List<BoardCell> ChessBoardCells = new List<BoardCell>();*/
-
+        public static bool IsNewGame { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            //Drawer.MainWindow = this;
-            Board.MyCanvas = (Canvas)FindName("Сanvas");
-
-            /*for (char i = 'A'; i <= 'H'; i++)
-            {
-                for (char j = '1'; j <= '8'; j++)
-                {
-                    BoardCell ChessBoardCell = new BoardCell(i, j, ChessBoard.Get(i, j), (Canvas)FindName("Сanvas"));
-                    ChessBoardCells.Add(ChessBoardCell);
-                }
-            }*/
         }
 
         private void BtnStartGame_Click(object sender, RoutedEventArgs e)
         {
-            Authorization authorization = new Authorization();
-            authorization.Show();
-
-            //Board.FillBoard();
-            //WpfDrawer.CreatePreviousGameWindow();
+            IsNewGame = true;
+            new Authorization().Show();
+            Close();
         }
 
         private void BtnContinue_Click(object sender, RoutedEventArgs e)
         {
-            //Board.DataWorker.LoadBoard();
-            //WpfDrawer.CreateGameWindow();
+            IsNewGame = false;
+            new Game().Show();
+            Close();
         }
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
-            Settings settings = new Settings();
-            settings.Show();
+            new Settings().Show();
             Close();
-            /*NewGame giveName = new NewGame();
-            giveName.Show();*/
         }
 
         private void BtnRating_Click(object sender, RoutedEventArgs e)
         {
-            //WpfDrawer.CreateRatingWindow();
+            new Rating().Show();
+            Close();
         }
     }
 }

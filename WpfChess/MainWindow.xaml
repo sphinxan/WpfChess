@@ -5,24 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfChess"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800" Background="{DynamicResource BackgroundColor}"
->
+        Title="MainWindow" Height="800" Width="800" Background="{DynamicResource BackgroundColor}">
     <Grid>
         <Border>
             <StackPanel>
                 <TextBlock Margin="110" Text="Chess" HorizontalAlignment="Center" FontSize="90" FontWeight="DemiBold" Foreground="DarkBlue"/>
-                <Button Click="BtnStartGame_Click">НАЧАТЬ ИГРУ</Button>
-                <Button Click="BtnContinue_Click">ПРОДОЛЖИТЬ</Button>
-                <Button Click="BtnSettings_Click">НАСТРОЙКИ</Button>
-                <Button Click="BtnRating_Click">РЕЙТИНГ</Button>
+                <Button Click="BtnStartGame_Click" Margin="6">НАЧАТЬ ИГРУ</Button>
+                <Button Click="BtnContinue_Click" Margin="6">ПРОДОЛЖИТЬ</Button>
+                <Button Click="BtnSettings_Click" Margin="6">НАСТРОЙКИ</Button>
+                <Button Click="BtnRating_Click" Margin="6">РЕЙТИНГ</Button>
             </StackPanel>
         </Border>
-        
-        <!--<Border>
-            <DockPanel Name="dpCanvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="Collapsed">
-                <Canvas Name="Canvas" SizeChanged="Canvas_SizeChanged"></Canvas>
-            </DockPanel>
-        </Border>-->
     </Grid>
 </Window>
 
