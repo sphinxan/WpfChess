@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WpfChess.Logic;
 
 namespace WpfChess
@@ -48,7 +39,11 @@ namespace WpfChess
 
                     if (i != 0 && j != 0)
                     {
-                        field.OutputCellBoard(Field, Figure);
+                        field.DoingCellBoard(Field, Figure);
+                    }
+                    else if (!(i == 0 && j == 0))
+                    {
+                        field.DoingCellsFrame(Field);
                     }
 
                     ChessBoard[i, j] = field.cell;
@@ -67,45 +62,21 @@ namespace WpfChess
         {
             Button pressedButton = sender as Button;
 
-            if (!IsMoving && ((pressedButton.Foreground == Brushes.Red) == (MoveFirstPlayer)) && pressedButton.Content != null)
+            if (!IsMoving && ((pressedButton.Foreground == Brushes.LightBlue) == (MoveFirstPlayer)) && pressedButton.Content != null)
             {
-                pressedButton.IsEnabled = false;
-
-                if (PrevButton != null)
-                {
-                    if (ColorCellGray)
-                        PrevButton.Background = Brushes.Gray;
-                    else
-                        PrevButton.Background = Brushes.White;
-                }
-
                 PrevButton = pressedButton;
 
-                if (pressedButton.Background == Brushes.Gray)
-                {
-                    ColorCellGray = true;
-                }
-                else
-                {
-                    ColorCellGray = false;
-                }
+                //Board.CloseSteps();
 
-                pressedButton.Background = Brushes.Green;
-
-                Board.DeactivateBoard();
-                Board.CloseSteps();
-
-                if (pressedButton.Content != null && ((pressedButton.Foreground == Brushes.Red) == (MoveFirstPlayer)))
+                if (pressedButton.Content != null && ((pressedButton.Foreground == Brushes.LightBlue) == (MoveFirstPlayer)))
                 {
                     IsMoving = true;
-                    //Moves.DrawCorrectMove(pressedButton, Figure);
                 }
             }
             else if (IsMoving)
             {
                 IsMoving = false;
-                Moves.MakeMove(pressedButton, Figure);
-                Board.ActivateBoard();
+                Board.MakeMove(pressedButton);
                 Board.CloseSteps();
                 SwitchPlayer();
             }

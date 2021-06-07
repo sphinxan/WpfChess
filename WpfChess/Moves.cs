@@ -201,7 +201,6 @@ namespace WpfChess
             if (Game.ChessBoard[j, i].Content == null)
             {
                 Game.ChessBoard[j, i].Background = Brushes.Yellow;
-                Game.ChessBoard[j, i].IsEnabled = true;
                 Game.ThereIsMove = true;
             }
             else
@@ -209,63 +208,11 @@ namespace WpfChess
                 if ((Game.ChessBoard[j, i].Foreground == Brushes.LightBlue) != Game.MoveFirstPlayer)
                 {
                     Game.ChessBoard[j, i].Background = Brushes.Yellow;
-                    Game.ChessBoard[j, i].IsEnabled = true;
                     Game.ThereIsMove = true;
                 }
                 return false;
             }
             return true;
         }
-
-
-        public static void MakeMove(Button pressedButton, FiguresLocation board)
-        {
-            /*if (MoveFirstPlayer == true)
-            {
-                FiguresLocation.PlayerTwo.AddPoints((string)pressedButton.Content);
-            }
-            else
-            {
-                FiguresLocation.PlayerOne.AddPoints((string)pressedButton.Content);
-            }*/
-
-            board.cell[pressedButton.Name[1] - 49, pressedButton.Name[3] - 49].Color = board.cell[Game.PrevButton.Name[1] - 49, Game.PrevButton.Name[3] - 49].Color;
-            board.cell[pressedButton.Name[1] - 49, pressedButton.Name[3] - 49].Name = board.cell[Game.PrevButton.Name[1] - 49, Game.PrevButton.Name[3] - 49].Name;
-            board.cell[Game.PrevButton.Name[1] - 49, Game.PrevButton.Name[3] - 49] = null;
-            pressedButton.Content = Game.PrevButton.Content;
-            pressedButton.Foreground = Game.PrevButton.Foreground;
-            Game.PrevButton.Content = null;
-            Game.PrevButton.Foreground = Brushes.Black;
-
-            if (Game.ColorCellGray)
-                Game.PrevButton.Background = Brushes.Gray;
-            else
-                Game.PrevButton.Background = Brushes.White;
-
-            Game.PrevButton = null;
-            Game.IsMoving = false;
-        }
-        /*public static void DrawCorrectMove(Button pressedButton, FiguresLocation board)
-        {
-            List<string> listCorrectMove = new List<string>();
-
-            int i = int.Parse(Convert.ToString(pressedButton.Name[1]));
-            int j = int.Parse(Convert.ToString(pressedButton.Name[3]));
-
-            CorrectMoves.SetFigure(i, j, board, listCorrectMove, Convert.ToString(pressedButton.Content));
-
-            for (int k = 0; k < listCorrectMove.Count; k++)
-            {
-                Game.ChessBoard[listCorrectMove[k][1] - 47, listCorrectMove[k][0] - 47].Background = Brushes.Yellow;
-                Game.ChessBoard[listCorrectMove[k][1] - 47, listCorrectMove[k][0] - 47].IsEnabled = true;
-                Game.thereIsMove = true;
-            }
-            if (!Game.thereIsMove)
-            {
-                Board.ActivateBoard();
-                Board.CloseSteps();
-                Game.isMoving = false;
-            }
-        }*/
     }
 }
