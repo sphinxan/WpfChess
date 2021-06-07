@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Rating" Height="800" Width="800" Background="{DynamicResource BackgroundColor}">
     <Grid>
-        <Border>
+        <Border Margin="6" BorderThickness="5">
             <StackPanel Name="RatingWindow">
                 <TextBlock HorizontalAlignment="Center" FontSize="30">Имя: Счет</TextBlock>
                 <TextBlock HorizontalAlignment="Center" FontSize="30">123: 1</TextBlock>

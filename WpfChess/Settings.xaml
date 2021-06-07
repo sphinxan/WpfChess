@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Настройки" Height="800" Width="800" Background="{DynamicResource BackgroundColor}">
     <Grid>
-        <Border>
+        <Border Margin="6" BorderThickness="5">
             <StackPanel>
                 <Button Click="Color_Change">Поменять цвет фона</Button>
 

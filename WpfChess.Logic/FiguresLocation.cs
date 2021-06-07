@@ -1,9 +1,8 @@
-﻿
-using System.IO;
+﻿using System.IO;
 
 namespace WpfChess.Logic
 {
-    public enum Figures { P = 'P', R = 'R', H = 'H', B = 'B', K = 'K', Q ='Q' }
+    public enum Figures { P , R , H , B , K , Q  }
     public enum Colors { Black, White }
 
     public class FiguresLocation
@@ -80,7 +79,7 @@ namespace WpfChess.Logic
                             cell[i, j] = new Cell(Figures.K, Colors.Black);
                             break;
                     }
-                    if (board[j, i][1] == 'W')
+                    if (board[j, i - 1][1] == 'W')
                         cell[i, j].Color = Colors.White;
                 }
             }

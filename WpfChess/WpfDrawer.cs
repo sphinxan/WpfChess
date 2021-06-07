@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Media;
 using WpfChess.Logic;
@@ -25,11 +23,11 @@ namespace WpfChess
                 color = false;
         }
 
-        public void OutputCellBoard(Canvas Field, FiguresLocation board)
+        public void DoingCellBoard(Canvas Field, FiguresLocation board)
         {
             var cellSize = (Field.ActualHeight + Field.ActualWidth) / 20;
 
-            //cell.Name = $"y{Y}x{X}";
+            cell.Name = $"y{Y}x{X}";
 
             cell.Width = cellSize;
             cell.Height = cellSize;
@@ -62,30 +60,48 @@ namespace WpfChess
             Canvas.SetLeft(cell, Y * cellSize);
         }
 
-        /*private static char ch = 'A';
-        public void OutputCellRamk(Canvas Field)
+        private static char ch = 'A';
+        public void DoingCellsFrame(Canvas Field)
         {
             var cellSize = (Field.ActualHeight + Field.ActualWidth) / 20;
-
-            var text = new TextBlock();
-            text.Text = Convert.ToString(ch);
-
-            if (ch == 'H')
-                ch = (char)(ch - 24);
+            
+            var text = new TextBlock
+            {
+                Text = $" {Convert.ToString(ch)}",
+                Height = cellSize / 1.5,
+                Width = cellSize / 2,
+                FontSize = cellSize / 2
+            };
+            var border = new Border
+            {
+                Width = cellSize,
+                Height = cellSize,
+                Child = text
+            };
 
             ch = (char)(ch + 1);
 
-            text.Height = cellSize / 4;
-            text.Width = cellSize / 4;
-            text.FontSize = cellSize / 4;
+            if (ch == 'I')
+                ch = '8';
+            else if (ch == '9')
+                ch = '7';
+            else if (ch == '8')
+                ch = '6';
+            else if (ch == '7')
+                ch = '5';
+            else if (ch == '6')
+                ch = '4';
+            else if (ch == '5')
+                ch = '3';
+            else if (ch == '4')
+                ch = '2';
+            else if (ch == '3')
+                ch = '1';
 
-            Field.Children.Add(text);
+            Field.Children.Add(border);
 
-            Canvas.SetTop(text, X * cellSize);
-            Canvas.SetLeft(text, Y * cellSize);
-
-            if (ch == '9')
-                ch = 'A';
-        }*/
+            Canvas.SetTop(border, X * cellSize);
+            Canvas.SetLeft(border, Y * cellSize);
+        }
     }
 }
