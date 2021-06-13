@@ -66,8 +66,6 @@ namespace WpfChess
             {
                 PrevButton = pressedButton;
 
-                //Board.CloseSteps();
-
                 if (pressedButton.Content != null && ((pressedButton.Foreground == Brushes.LightBlue) == (MoveFirstPlayer)))
                 {
                     IsMoving = true;
@@ -77,7 +75,6 @@ namespace WpfChess
             {
                 IsMoving = false;
                 Board.MakeMove(pressedButton);
-                Board.CloseSteps();
                 SwitchPlayer();
             }
         }

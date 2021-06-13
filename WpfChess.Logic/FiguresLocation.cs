@@ -78,8 +78,11 @@ namespace WpfChess.Logic
                         case 'K':
                             cell[i, j] = new Cell(Figures.K, Colors.Black);
                             break;
+                        case 'N':
+                            cell[i, j] = null;
+                            break;
                     }
-                    if (board[j, i - 1][1] == 'W')
+                    if (board[j, i][1] == 'W')
                         cell[i, j].Color = Colors.White;
                 }
             }
