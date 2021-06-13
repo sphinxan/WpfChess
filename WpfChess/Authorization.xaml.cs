@@ -18,8 +18,7 @@ namespace WpfChess
             FirstPlayer.Name = tbFirstPlayer.Text;
             SecondPlayer.Name = tbSecondPlayer.Text;
 
-            Game game = new Game();
-            game.Show();
+            new Game().Show();
             Close();
         }
     }

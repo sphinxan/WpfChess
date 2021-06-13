@@ -27,8 +27,6 @@ namespace WpfChess
         {
             var cellSize = (Field.ActualHeight + Field.ActualWidth) / 20;
 
-            cell.Name = $"y{Y}x{X}";
-
             cell.Width = cellSize;
             cell.Height = cellSize;
 
@@ -97,6 +95,9 @@ namespace WpfChess
                 ch = '2';
             else if (ch == '3')
                 ch = '1';
+
+            else if (ch == '2')
+                ch = 'A';
 
             Field.Children.Add(border);
 
